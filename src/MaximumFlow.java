@@ -165,7 +165,7 @@ public class MaximumFlow {
 	 * @return The value of the given flow
 	 */
 	static int getFlowSize(HashMap<Edge, Integer> flow, DirectedGraph g,
-			int source) {
+			Object source) {
 		int maximumFlow = 0;
 		Node sourceNode = g.getNode(source);
 		for (int i = 0; i < sourceNode.getOutLeadingOrder(); i++) {
