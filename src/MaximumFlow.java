@@ -123,7 +123,7 @@ public class MaximumFlow {
 				// directions if the capacity is partially used, so this if
 				// statement is necessary to find out the edge's actual
 				// direction.
-				if (edge.getStart() == lastNode) {
+				if (edge.getStart().equals(lastNode)) {
 					c = edge.getCapacity() - flow.get(edge);
 					lastNode = edge.getTarget();
 				} else {
@@ -140,7 +140,7 @@ public class MaximumFlow {
 			lastNode = source;
 			for (Edge edge : path) {
 				// If statement like above
-				if (edge.getStart() == lastNode) {
+				if (edge.getStart().equals(lastNode)) {
 					flow.put(edge, flow.get(edge) + minCapacity);
 					lastNode = edge.getTarget();
 				} else {
