@@ -34,7 +34,7 @@ public class DirectedGraph {
 		}
 		if (!this.nodes.containsKey(endNodeID)) {
 			endNode = new Node();
-			this.nodes.put(endNodeID, new Node());
+			this.nodes.put(endNodeID, endNode);
 		} else {
 			endNode = this.nodes.get(endNodeID);
 		}

@@ -214,19 +214,19 @@ public class MaximumFlow {
 					Edge e = node.getEdge(i);
 					// Only add the node if the flow can be changed in an out
 					// leading direction. Also break, if the target is reached.
-					if (e.getStart() == nodeID
+					if (e.getStart().equals(nodeID)
 							&& !parent.containsKey(e.getTarget())
 							&& flow.get(e) < e.getCapacity()) {
 						parent.put(e.getTarget(), e);
-						if (e.getTarget() == target) {
+						if (e.getTarget().equals(target)) {
 							break all;
 						}
 						newFringe.add(e.getTarget());
-					} else if (e.getTarget() == nodeID
+					} else if (e.getTarget().equals(nodeID)
 							&& !parent.containsKey(e.getStart())
 							&& flow.get(e) > 0) {
 						parent.put(e.getStart(), e);
-						if (e.getStart() == target) {
+						if (e.getStart().equals(target)) {
 							break all;
 						}
 						newFringe.add(e.getStart());
@@ -244,10 +244,10 @@ public class MaximumFlow {
 		// If a path was found, reconstruct it.
 		Object node = target;
 		LinkedList<Edge> path = new LinkedList<Edge>();
-		while (node != start) {
+		while (!node.equals(start)) {
 			Edge e = parent.get(node);
 			path.addFirst(e);
-			if (e.getStart() == node) {
+			if (e.getStart().equals(node)) {
 				node = e.getTarget();
 			} else {
 				node = e.getStart();
